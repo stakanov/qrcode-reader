@@ -2,7 +2,9 @@
 
 from qrcode_reader import QRCodeManager
 
-
-if __name__=="__main__":
+def main():
 	app = QRCodeManager.QRCodeManager()
 	app.run()
+
+if __name__=="__main__":
+	main()
