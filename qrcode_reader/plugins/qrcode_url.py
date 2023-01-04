@@ -1,12 +1,15 @@
 import re
 import webbrowser
 from tkinter import messagebox
-from qrcode_reader.plugins.QRCode import QRCode
+import plugins 
 
-class QRCodeUrl(QRCode):
+
+
+class QRCodeUrl(plugins.QRCode):
 	def __init__(self, _data):
 		self.type = 'url'
 		self.data = _data
+		self.name = "Website"
 		self.url = None
 		super().__init__(self.type, self.data)
 
@@ -23,9 +26,8 @@ class QRCodeUrl(QRCode):
 		except Exception as e:
 			print(e)
 
-	def run(self):
-		self.info()
-		print(f"Open {self.data}?")
-		res = messagebox.askyesno('Open URL', f"Open {self.url} ?")
+
+	def actions(self):
+		res = messagebox.askyesno(self.name, f"Open {self.url} ?")
 		if res:
-			webbrowser.open(self.url)	    
+			webbrowser.open(self.tel)	

@@ -5,10 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Module",
+            "name": "Python: qrcode_reader.py",
             "type": "python",
             "request": "launch",
-            "module": "qrcode_reader",
+            "program": "${workspaceFolder}/qrcode_reader/qrcode_reader.py",
             "justMyCode": true
         }
     ]

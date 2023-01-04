@@ -1,0 +1,4 @@
+pyzbar
+numpy
+cv2
+tkinter

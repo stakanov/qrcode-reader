@@ -1,12 +1,15 @@
 import re
 import webbrowser
 from tkinter import messagebox
-from qrcode_reader.plugins.QRCode import QRCode
+import plugins 
 
-class QRCodeMail(QRCode):
+
+
+class QRCodeMail(plugins.QRCode):
 	def __init__(self, _data):
 		self.type = 'email'
 		self.data = _data
+		self.name = "E-Mail"
 		self.address = None
 		self.cc = None
 		self.bcc = None
@@ -14,17 +17,6 @@ class QRCodeMail(QRCode):
 		self.body = None
 		super().__init__(self.type, self.data)
 
-
-	# def info(self):
-	# 	print("="*80)
-	# 	print(f"Type    : {self.type}")
-	# 	print(f"Data    : {self.data}")
-	# 	print(f"Address : {self.address}")
-	# 	print(f"CC      : {self.cc}")
-	# 	print(f"BCC     : {self.bcc}")
-	# 	print(f"Subject : {self.subject}")
-	# 	print(f"Body    : {self.body}")
-	# 	print("="*80)
 
 	def check(self):    
 		try:
@@ -43,8 +35,8 @@ class QRCodeMail(QRCode):
 		except Exception as e:
 			print(e)
 
-	def run(self):
-		self.info()
-		res = messagebox.askyesno('Send E-Mail', f"Send mail to {self.address} ?")
+
+	def actions(self):
+		res = messagebox.askyesno(self.name, f"Send mail to {self.address} ?")
 		if res:
 			webbrowser.open(self.data)	    

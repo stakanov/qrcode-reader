@@ -1,15 +1,16 @@
 import re
 import webbrowser
 from tkinter import messagebox
-from qrcode_reader.plugins.QRCode import QRCode
+import plugins 
 
 
 
-class QRCodeTel(QRCode):
+class QRCodeTel(plugins.QRCode):
 	def __init__(self, _data):
 		self.type = 'tel'
 		self.data = _data
 		self.tel = None
+		self.name = "Telephone"
 		super().__init__(self.type, self.data)
 
 
@@ -24,9 +25,7 @@ class QRCodeTel(QRCode):
 			print(e)
 
 
-	def run(self):
-		self.info()
-		print(f"Call {self.tel}?")
-		res = messagebox.askyesno('Call telephone number', f"Call {self.tel} ?")
+	def actions(self):
+		res = messagebox.askyesno(self.name, f"Call {self.tel} ?")
 		if res:
-			webbrowser.open(self.tel)	    
+			webbrowser.open(self.tel)	

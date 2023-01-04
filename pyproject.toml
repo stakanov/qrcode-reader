@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "qrcode_reader_stakanov"
+version = "0.2.0"
+authors = [
+  { name="Daniele Stakanov Senatore", email="senatoredaniele@gmail.com" },
+]
+description = "QRCode Reader for Linux"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: X11 Applications",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: Italian",
+    "Operating System :: Unix",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Utilities"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/stakanov/qrcode_reader"
+"Bug Tracker" = "https://github.com/stakanov/qrcode_reader/issues"
