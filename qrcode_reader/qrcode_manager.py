@@ -21,11 +21,12 @@ class QRCodeManager:
 			decodedObjects = pyzbar.decode(frame)
 			for obj in decodedObjects:
 				#print(obj)
+				time.sleep(1)
 				reading = False
 			if cv2.waitKey(1) & 0xFF == ord('q'):
 				break
-		self.data = obj.data.decode("utf-8")
-		#print(self.data)	
+		if obj != None:
+			self.data = obj.data.decode("utf-8")
 		self.process_data()
 		cap.release()
 		cv2.destroyAllWindows()	
