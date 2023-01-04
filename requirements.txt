@@ -1,4 +1,5 @@
-pyzbar
 numpy
-cv2
+opencv-python
+PyGObject
+pyzbar
 tkinter
