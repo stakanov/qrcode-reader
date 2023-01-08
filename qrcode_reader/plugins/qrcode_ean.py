@@ -5,20 +5,21 @@ import plugins
 
 
 
-class CodeQRTel(plugins.Code):
+class EAN(plugins.Code):
 	def __init__(self, _type, _subtype, _data):
 		self.type = _type
-		self.subtype = 'tel'
+		self.subtype = None
 		self.data = _data
-		self.tel = None
-		self.name = "Telephone"
+		self.name = "EAN"
 		super().__init__(self.type, self.subtype, self.data)
 
 
 	def check(self):    
 		try:
-			if result := re.search(r'^tel:(.*)$', self.data):
-				self.tel = result.groups()[0]
+			if len(self.data) == 13:
+				self.name = "EAN-13"
+			elif len(self.data) == 8:
+				self.name = "EAN-8"
 			else: 
 				return False
 			return True
@@ -27,6 +28,6 @@ class CodeQRTel(plugins.Code):
 
 
 	def actions(self):
-		res = messagebox.askyesno(self.name, f"Call {self.tel} ?")
-		if res:
-			webbrowser.open(self.tel)	
+		msg = f"Read: {self.data}"
+		messagebox.showinfo(self.name, msg)
+		print(f"{self.name}: {msg}")

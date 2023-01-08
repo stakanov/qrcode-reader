@@ -5,9 +5,10 @@ import plugins
 
 
 
-class QRCodeMail(plugins.QRCode):
-	def __init__(self, _data):
-		self.type = 'email'
+class CodeQRMail(plugins.Code):
+	def __init__(self, _type, _subtype, _data):
+		self.type = _type
+		self.subtype = 'email'
 		self.data = _data
 		self.name = "E-Mail"
 		self.address = None
@@ -15,7 +16,7 @@ class QRCodeMail(plugins.QRCode):
 		self.bcc = None
 		self.subject = None
 		self.body = None
-		super().__init__(self.type, self.data)
+		super().__init__(self.type, self.subtype, self.data)
 
 
 	def check(self):    

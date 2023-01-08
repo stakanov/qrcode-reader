@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
-from qrcode_manager import QRCodeManager
+from qrcode_manager import CodeManager
 
 
 def main():
-	app = QRCodeManager()
+	app = CodeManager()
 	app.run()
 
 if __name__=="__main__":

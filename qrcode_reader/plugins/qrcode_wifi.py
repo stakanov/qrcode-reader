@@ -9,9 +9,10 @@ import plugins
 
 
 
-class QRCodeWifi(plugins.QRCode):
-	def __init__(self, _data):
-		self.type = 'wifi'
+class CodeQRWifi(plugins.Code):
+	def __init__(self, _type, _subtype, _data):
+		self.type = _type
+		self.subtype = 'wifi'
 		self.data = _data
 		self.name = "WiFi Connection"
 		self.enc = None
@@ -19,7 +20,7 @@ class QRCodeWifi(plugins.QRCode):
 		self.ssid = None
 		self.hidden = None
 		self._main_loop = None
-		super().__init__(self.type, self.data)		
+		super().__init__(self.type, self.subtype, self.data)		
 
 
 	def check(self):

@@ -5,13 +5,14 @@ import plugins
 
 
 
-class QRCodeSMS(plugins.QRCode):
-	def __init__(self, _data):
-		self.type = 'sms'
+class CodeQRSMS(plugins.Code):
+	def __init__(self, _type, _subtype, _data):
+		self.type = _type
+		self.subtype = 'sms'
 		self.data = _data
 		self.tel = None
 		self.name = "SMS"
-		super().__init__(self.type, self.data)
+		super().__init__(self.type, self.subtype, self.data)
 
 
 	def check(self):    

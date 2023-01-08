@@ -5,13 +5,14 @@ import plugins
 
 
 
-class QRCodeUrl(plugins.QRCode):
-	def __init__(self, _data):
-		self.type = 'url'
+class CodeQRUrl(plugins.Code):
+	def __init__(self, _type, _subtype, _data):
+		self.type = _type
+		self.subtype = 'url'
 		self.data = _data
 		self.name = "Website"
 		self.url = None
-		super().__init__(self.type, self.data)
+		super().__init__(self.type, self.subtype, self.data)
 
 
 	def check(self):    

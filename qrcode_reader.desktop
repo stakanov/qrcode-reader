@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Code Reader
+Comment=Bar/QRCode Reader
+Exec=$HOME/bin/qrcode_reader
+Terminal=true
+Type=Application
+Icon=qreator
+StartupNotify=true
+#MimeType=application/x-ipynb+json;
+#Categories=
+#Keywords=python;

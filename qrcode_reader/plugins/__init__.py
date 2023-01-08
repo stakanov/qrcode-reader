@@ -5,12 +5,13 @@ import inspect
 
 
 
-class QRCode:
+class Code:
 	_plugins = []
 
 
-	def __init__(self, _type, _data):
+	def __init__(self, _type, _subtype, _data ):
 		self.type = _type
+		self.subtype = _subtype
 		self.data = _data
 		if self.check():
 			self.run()
@@ -31,7 +32,7 @@ class QRCode:
 
 
 	def run(self):
-		print(f"QRCode detected: {self.type}")
+		print(f"Code detected: {self.type} (subtype: {self.subtype})")
 		self.info()
 		self.actions()
 
